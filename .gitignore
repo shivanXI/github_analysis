@@ -1,0 +1,9 @@
+github.aux
+github.log
+github.out
+github.bbl
+github.blg
+cache
+*.tex
+!github.tex
+*.pyc
