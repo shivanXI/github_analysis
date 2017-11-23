@@ -21,6 +21,6 @@ General workflow
  * The process.py script reads both .csv files and creates repositories.gml
  * Gephi loads repositories.gml and creates:
     * repositories\*.pdf 
-    * [repositories.json](../gh-pages/repositories.json) for sigma.js
+    * [repositories.json](https://github.com/shivanXI/github_analysis/blob/master/repositories.json) for sigma.js
  * Python code within analysis-\*.texw reads repositories.gml and produces
    output 
