@@ -12,3 +12,12 @@ with open('repo-attributes.csv', 'rb') as repofile:
             language='(unknown)' if repo['repository_language'] == 'null'
                 else repo['repository_language'],
             watchers=int(repo['repository_watchers']))
+
+with open('repo-weights.csv', 'rb') as edgefile:
+    reader = csv.DictReader(edgefile)
+    for edge in reader:
+        g.add_edge(edge['repository1'], edge['repository2'],
+            weight=float(edge['weight']))
+
+print g.summary()
+g.write('repositories.gml')
