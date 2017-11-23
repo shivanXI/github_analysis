@@ -16,3 +16,15 @@ var graph = sigma.init(document.getElementById('graph')).drawingProperties({
 }).bind('upnodes', function(e) {
   window.open(graph.getNodes(e.content[0]).attr.attributes.name);
 });
+
+var greyColor = '#666';
+var filterActive = false;
+var filterTimeout = false;
+
+graph.bind('overnodes', function(event) {
+  var nodes = event.content;
+  var neighbors = {};
+
+  if (filterActive) {
+    return;
+  }
