@@ -86,3 +86,30 @@ $('body').css({cursor: 'pointer'});
   $('body').css({cursor: 'default'});
   resetHighlight();
 });
+
+
+$('#filter').on('search keydown change', function(event) {
+  if (filterTimeout !== false) {
+    clearTimeout(filterTimeout);
+  }
+  filterTimeout = setTimeout(function() {
+    var filterString = $('#filter').val();
+    if (filterString.length > 0) {
+      filterActive = true;
+      graph.iterEdges(function(e) {
+        if (!e.attr['grey']) {
+          e.attr['true_color'] = e.color;
+          e.color = greyColor;
+          e.attr['grey'] = 1;
+        }
+      });
+      highlightNodes(function(n) {
+        return n['label'].indexOf(filterString) >= 0;
+      });
+    }
+    else {
+      resetHighlight();
+      filterActive = false;
+    }
+  }, 300);
+});
