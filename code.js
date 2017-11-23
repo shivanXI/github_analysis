@@ -113,3 +113,11 @@ $('#filter').on('search keydown change', function(event) {
     }
   }, 300);
 });
+
+
+graph.parseJson('repositories.json', function() {
+  graph.iterEdges(function(e){
+    e.size=Math.sqrt(e.weight);
+  });
+  graph.draw();
+});
