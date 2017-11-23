@@ -8,7 +8,7 @@ structure.
 **Interactive visualization:**
 
 <a href="http://">
-<img src="">
+<img src="preview.png">
 </a>
 
 
